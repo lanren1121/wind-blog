@@ -77,10 +77,25 @@ npm run build
 
 ## 部署
 
-推送到 GitHub 仓库 `lanren1121/wind-blog` 的 `main` 分支后，GitHub Actions 会自动构建并部署到 GitHub Pages。
+### Cloudflare Pages（推荐）
 
-网站地址通常是：
+Cloudflare Pages 项目需要这样配置：
 
 ```text
-https://lanren1121.github.io/wind-blog/
+Framework preset: Vue
+Build command: npm run build
+Build output directory: dist
+Root directory: 留空
+Production branch: main
 ```
+
+部署成功后网站地址：
+
+```text
+https://wind-blog.pages.dev/
+```
+
+### GitHub Pages（可选）
+
+如果改用 GitHub Pages，需要把 `vite.config.js` 的 `base` 改为 `/wind-blog/`。
+
