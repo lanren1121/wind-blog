@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { createArticle, getArticles, getArticleById, getHotArticles } from '@/api/article';
+import { createArticle, deleteArticle, getArticles, getArticleById, getHotArticles } from '@/api/article';
 
 // 文章数据逻辑
 export function useArticle() {
@@ -79,6 +79,22 @@ export function useArticle() {
     }
   };
 
+  const removeLocalArticle = async (id) => {
+    loading.value = true;
+    error.value = null;
+
+    try {
+      await deleteArticle(id);
+      articles.value = articles.value.filter((article) => article.id !== id);
+      if (articleDetail.value?.id === id) articleDetail.value = null;
+    } catch (err) {
+      error.value = err.message;
+      throw err;
+    } finally {
+      loading.value = false;
+    }
+  };
+
   // 重置文章详情
   const resetArticleDetail = () => {
     articleDetail.value = null;
@@ -94,6 +110,7 @@ export function useArticle() {
     fetchArticleById,
     fetchHotArticles,
     publishArticle,
+    removeLocalArticle,
     resetArticleDetail
   };
 }

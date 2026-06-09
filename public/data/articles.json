@@ -1,0 +1,43 @@
+{
+  "articles": [
+    {
+      "id": "hello-wind-blog",
+      "title": "你好，这里是风的博客",
+      "summary": "一个以搜索体验为中心的个人博客，用来记录技术、产品和长期思考。",
+      "category": "随笔",
+      "tags": ["风的博客", "个人博客", "开始"],
+      "coverImage": "",
+      "content": "# 你好，这里是风的博客\n\n欢迎来到我的个人博客。这里会记录我对技术、产品、效率工具和生活的长期观察。\n\n我希望它像 Google 搜索一样简单：打开、输入关键词，然后找到真正有用的内容。\n\n## 这个博客会写什么？\n\n- 技术学习与项目复盘\n- 个人效率系统\n- 产品体验观察\n- 长期主义和成长记录\n\n> 好的个人网站不是信息堆砌，而是把想法整理成可以被再次发现的索引。",
+      "imagePaths": [],
+      "likes": 18,
+      "createdAt": "2026-06-09T10:00:00.000Z",
+      "updatedAt": "2026-06-09T10:00:00.000Z"
+    },
+    {
+      "id": "vue-google-style-blog",
+      "title": "用 Vue 打造 Google 风格个人博客",
+      "summary": "从视觉语言、搜索入口、卡片动效和内容发布四个角度重构博客体验。",
+      "category": "技术",
+      "tags": ["Vue", "TailwindCSS", "设计系统"],
+      "coverImage": "",
+      "content": "# 用 Vue 打造 Google 风格个人博客\n\nGoogle 风格不等于复制 Google 首页，而是学习它的产品原则：清晰、快速、克制、可靠。\n\n## 关键点\n\n1. 搜索优先：让用户先找到内容。\n2. 留白充足：减少视觉噪声。\n3. 动效轻盈：使用 `cubic-bezier(0.4, 0, 0.2, 1)`。\n4. 内容可持续发布：编辑、预览、保存、发布形成闭环。\n\n`Vue + Vite + TailwindCSS` 很适合快速实现这个方向。",
+      "imagePaths": [],
+      "likes": 42,
+      "createdAt": "2026-06-08T16:20:00.000Z",
+      "updatedAt": "2026-06-08T16:20:00.000Z"
+    },
+    {
+      "id": "notes-for-java-internship",
+      "title": "Java 后端实习学习路线备忘",
+      "summary": "围绕 Java、Spring Boot、MySQL、Redis 和项目表达整理一份实习准备清单。",
+      "category": "技术",
+      "tags": ["Java", "Spring Boot", "实习"],
+      "coverImage": "",
+      "content": "# Java 后端实习学习路线备忘\n\n如果目标是 Java 后端日常实习，可以先把基础能力打扎实。\n\n## 技术主线\n\n- Java 基础：集合、并发、JVM 基础\n- Spring Boot：REST API、参数校验、异常处理\n- MySQL：索引、事务、慢查询分析\n- Redis：缓存、过期策略、简单分布式锁\n- 项目表达：业务背景、技术选型、难点和收益\n\n## 面试表达\n\n不要只说“我会用”，要说清楚：为什么用、怎么用、遇到什么问题、最后如何解决。",
+      "imagePaths": [],
+      "likes": 35,
+      "createdAt": "2026-06-07T09:40:00.000Z",
+      "updatedAt": "2026-06-07T09:40:00.000Z"
+    }
+  ]
+}

@@ -46,9 +46,14 @@
 
       <div class="border-t border-slate-100 bg-slate-50 px-6 py-5 sm:px-10">
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <button @click="likeArticle" class="inline-flex items-center justify-center rounded-full bg-google-blue px-5 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-google">
-            {{ liked ? '已点赞' : '点赞' }} {{ likesCount }}
-          </button>
+          <div class="flex flex-wrap gap-3">
+            <button @click="likeArticle" class="inline-flex items-center justify-center rounded-full bg-google-blue px-5 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-google">
+              {{ liked ? '已点赞' : '点赞' }} {{ likesCount }}
+            </button>
+            <button @click="deleteRemoteArticle" class="inline-flex items-center justify-center rounded-full border border-red-200 bg-white px-5 py-2.5 text-sm font-medium text-red-600 transition hover:-translate-y-0.5 hover:shadow-google">
+              删除文章
+            </button>
+          </div>
           <router-link to="/write" class="text-sm font-medium text-slate-600 hover:text-google-blue">写一篇自己的文章 →</router-link>
         </div>
       </div>
@@ -62,6 +67,7 @@
 </template>
 
 <script>
+import { deleteArticleFromGitHub } from '@/api/article';
 import { useArticle } from '@/composables/useArticle';
 import { format } from '@/utils/format.js';
 import MarkdownView from '@/components/article/MarkdownView.vue';
@@ -105,6 +111,20 @@ export default {
     likeArticle() {
       this.liked = !this.liked;
       this.likesCount = this.liked ? this.likesCount + 1 : this.likesCount - 1;
+    },
+    async deleteRemoteArticle() {
+      if (!this.articleDetail) return;
+      const password = window.prompt('请输入管理员密码。删除后会移除 JSON 文章数据和这篇文章关联上传的图片。');
+      if (!password) return;
+      if (!window.confirm(`确认删除《${this.articleDetail.title}》吗？`)) return;
+
+      try {
+        await deleteArticleFromGitHub(this.articleDetail.id, password);
+        await this.removeLocalArticle(this.articleDetail.id);
+        this.$router.push('/articles');
+      } catch (error) {
+        window.alert(error.message);
+      }
     }
   },
   async created() {
