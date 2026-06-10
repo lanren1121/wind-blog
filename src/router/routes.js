@@ -28,6 +28,21 @@ const routes = [
         component: () => import('@/views/Article/Editor.vue')
       },
       {
+        path: '/login',
+        name: 'Login',
+        component: () => import('@/views/Auth/Login.vue')
+      },
+      {
+        path: '/register',
+        name: 'Register',
+        component: () => import('@/views/Auth/Register.vue')
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import('@/views/Auth/Profile.vue')
+      },
+      {
         path: '/category',
         name: 'Category',
         component: () => import('@/views/Category/index.vue')

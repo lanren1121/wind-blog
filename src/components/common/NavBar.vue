@@ -33,6 +33,25 @@
           写文章
         </router-link>
 
+        <div class="hidden items-center gap-2 md:flex">
+          <template v-if="isLoggedIn">
+            <router-link to="/profile" class="max-w-32 truncate rounded-full bg-slate-100 px-3 py-2 text-sm text-slate-600 transition hover:bg-slate-200">
+              {{ currentUser.nickname || currentUser.email }}
+            </router-link>
+            <button class="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-600 transition hover:shadow-google" @click="handleLogout">
+              退出
+            </button>
+          </template>
+          <template v-else>
+            <router-link to="/login" class="rounded-full px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100">
+              登录
+            </router-link>
+            <router-link to="/register" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-google-blue transition hover:shadow-google">
+              注册
+            </router-link>
+          </template>
+        </div>
+
         <button class="rounded-full p-2 text-slate-600 transition-colors hover:bg-slate-100 md:hidden" @click="mobileOpen = !mobileOpen" aria-label="打开菜单">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -54,14 +73,31 @@
         <router-link to="/write" class="mt-2 rounded-full bg-google-blue px-4 py-2 text-center text-white" @click="mobileOpen = false">
           写文章
         </router-link>
+        <template v-if="isLoggedIn">
+          <router-link to="/profile" class="rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-600" @click="mobileOpen = false">
+            {{ currentUser.nickname || currentUser.email }}
+          </router-link>
+          <button class="rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700" @click="handleLogout">
+            退出登录
+          </button>
+        </template>
+        <template v-else>
+          <router-link to="/login" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-50" @click="mobileOpen = false">
+            登录
+          </router-link>
+          <router-link to="/register" class="rounded-full border border-slate-200 bg-white px-4 py-2 text-center text-google-blue" @click="mobileOpen = false">
+            注册
+          </router-link>
+        </template>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useAuth } from '@/composables/useAuth';
 
 export default {
   name: 'NavBar',
@@ -69,6 +105,12 @@ export default {
     const router = useRouter();
     const searchQuery = ref('');
     const mobileOpen = ref(false);
+    const {
+      currentUser,
+      isLoggedIn,
+      loadCurrentUser,
+      logoutUser
+    } = useAuth();
     const navItems = [
       { label: '首页', to: '/' },
       { label: '文章', to: '/articles' },
@@ -84,11 +126,24 @@ export default {
       router.push({ path: '/articles', query: { search: keyword } });
     };
 
+    const handleLogout = async () => {
+      await logoutUser();
+      mobileOpen.value = false;
+      router.push('/');
+    };
+
+    onMounted(() => {
+      loadCurrentUser().catch(() => {});
+    });
+
     return {
       navItems,
       searchQuery,
       mobileOpen,
-      handleSearch
+      currentUser,
+      isLoggedIn,
+      handleSearch,
+      handleLogout
     };
   }
 };
