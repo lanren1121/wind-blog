@@ -51,7 +51,7 @@ const hashPassword = async (password, saltBase64Url = '') => {
     {
       name: 'PBKDF2',
       salt,
-      iterations: 120000,
+      iterations: 20000,
       hash: 'SHA-256'
     },
     key,

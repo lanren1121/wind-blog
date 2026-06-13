@@ -1,0 +1,78 @@
+{
+  "info": {
+    "scrollHeight": 40962,
+    "clientHeight": 716,
+    "className": "bear-web-x-container docx-in-wiki width-transition"
+  },
+  "count": 4,
+  "records": [
+    {
+      "file": "docker-quickstart-deploy-01.png",
+      "hash": "21853223acf8beec762c1bab2bcb4073924cac964fe659a6d65e0bea002767f7",
+      "scrollTop": 14541,
+      "idx": 83,
+      "tag": "DIV",
+      "cls": "block docx-image-block",
+      "src": "",
+      "bg": "none",
+      "x": 100.5,
+      "y": 450.96875,
+      "w": 820,
+      "h": 122.83333587646484,
+      "visible": true,
+      "text": "​\n📌\n这样以来，容器内的conf和html目录就 与宿主机的conf和html目录关联起来，我们称为挂载。此时，我们操作宿主机的/var/lib/docker/volume /html/_data就是在操作容器内的/u r/ hare/nginx/html/_data目录。只要我们将静态资源放入宿主机对应目录，就可以被Nginx代理了。​\n​\n​\n​\n\ud83d",
+      "size": 58289
+    },
+    {
+      "file": "docker-quickstart-deploy-02.png",
+      "hash": "e0491b365eded0f784fb87efa1f90cb823aa3f915861a18bd9dd882332a08488",
+      "scrollTop": 14541,
+      "idx": 84,
+      "tag": "DIV",
+      "cls": "block-comment image-block-comment   local-comment-all-third-party  ",
+      "src": "",
+      "bg": "none",
+      "x": 100.5,
+      "y": 450.96875,
+      "w": 820,
+      "h": 122.83333587646484,
+      "visible": true,
+      "text": "​\n📌\n这样以来，容器内的conf和html目录就 与宿主机的conf和html目录关联起来，我们称为挂载。此时，我们操作宿主机的/var/lib/docker/volume /html/_data就是在操作容器内的/u r/ hare/nginx/html/_data目录。只要我们将静态资源放入宿主机对应目录，就可以被Nginx代理了。​\n​\n​\n​\n\ud83d",
+      "size": 58280
+    },
+    {
+      "file": "docker-quickstart-deploy-03.png",
+      "hash": "c645f4ab481e5133e4f6eb1298bf0740a38cc9fd42828f8a0e1257d155d0f135",
+      "scrollTop": 14934,
+      "idx": 83,
+      "tag": "DIV",
+      "cls": "block docx-image-block",
+      "src": "",
+      "bg": "none",
+      "x": 100.5,
+      "y": 58.302085876464844,
+      "w": 820,
+      "h": 122.83333587646484,
+      "visible": true,
+      "text": "​\n💡\n/var/lib/docker/volume 这个目录就是默认的存放所有容器数据卷的目录，其下再根据数据卷名称创建新目录，格式为/数据卷名/_data。​\n​\n为什么不让容器目录直接指向宿主机目录呢？​\n•\n因为直接指向宿主机目录就与宿主机强耦合了，如果切换了环境，宿主机目录就可能发生改变了。由于容器一旦创建，目录挂载就无法修改，这样容器就无法正常",
+      "size": 58297
+    },
+    {
+      "file": "docker-quickstart-deploy-04.png",
+      "hash": "462ee01bbf325751d4522dd276186417b90610b7987fb4acafe8d2cd0e13c6b6",
+      "scrollTop": 14934,
+      "idx": 84,
+      "tag": "DIV",
+      "cls": "block-comment image-block-comment   local-comment-all-third-party  ",
+      "src": "",
+      "bg": "none",
+      "x": 100.5,
+      "y": 58.302085876464844,
+      "w": 820,
+      "h": 122.83333587646484,
+      "visible": true,
+      "text": "​\n💡\n/var/lib/docker/volume 这个目录就是默认的存放所有容器数据卷的目录，其下再根据数据卷名称创建新目录，格式为/数据卷名/_data。​\n​\n为什么不让容器目录直接指向宿主机目录呢？​\n•\n因为直接指向宿主机目录就与宿主机强耦合了，如果切换了环境，宿主机目录就可能发生改变了。由于容器一旦创建，目录挂载就无法修改，这样容器就无法正常",
+      "size": 58288
+    }
+  ]
+}

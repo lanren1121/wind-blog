@@ -1,3 +1,7 @@
 name = "wind-blog"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-06-09"
+
+[[kv_namespaces]]
+binding = "BLOG_AUTH"
+id = "0436e77f26e74a39a9a564ecfde6bd91"
